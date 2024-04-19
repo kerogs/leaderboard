@@ -11,6 +11,184 @@
 
 <body>
 
+    <!-- customMenu -->
+    <div class="custom-menu" id="custom-menu">
+        <ul>
+
+            <li id="retirer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M5 2c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3.5l3.5 4 3.5-4H19c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2H5zm11 9H8V9h8v2z">
+                    </path>
+                </svg>
+                Retirer
+            </li>
+
+            <li id="modifier">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M9 22h1v-2h-.989C8.703 19.994 6 19.827 6 16c0-1.993-.665-3.246-1.502-4C5.335 11.246 6 9.993 6 8c0-3.827 2.703-3.994 3-4h1V2H8.998C7.269 2.004 4 3.264 4 8c0 2.8-1.678 2.99-2.014 3L2 13c.082 0 2 .034 2 3 0 4.736 3.269 5.996 5 6zm13-11c-.082 0-2-.034-2-3 0-4.736-3.269-5.996-5-6h-1v2h.989c.308.006 3.011.173 3.011 4 0 1.993.665 3.246 1.502 4-.837.754-1.502 2.007-1.502 4 0 3.827-2.703 3.994-3 4h-1v2h1.002C16.731 21.996 20 20.736 20 16c0-2.8 1.678-2.99 2.014-3L22 11z">
+                    </path>
+                </svg>
+                Modifier
+            </li>
+
+            <hr>
+
+            <li id="inverser">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M8 16H4l6 6V2H8zm6-11v17h2V8h4l-6-6z"></path>
+                </svg>
+                Inverser
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- nav -->
+    <div class="container">
+        <div class="left">
+            <img src="./src/img/logo.png" alt="">
+
+            <ul>
+                <a href="">
+                    <li class="active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M4 7h16v2H4zm0-4h16v2H4zm0 8h16v2H4zm0 4h16v2H4zm2 4h12v2H6z"></path>
+                        </svg>
+                        Tableau des scores
+                    </li>
+                </a>
+
+                <a href="">
+                    <li class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14z">
+                            </path>
+                            <path d="M11 7h2v2h-2zm0 4h2v6h-2z"></path>
+                        </svg>
+                        Information
+                    </li>
+                </a>
+            </ul>
+
+            <div class="bottom">
+                <p class="github">
+                    <a href="https://github.com/kerogs/leaderboard" target="_blank">
+                        By Kerogs
+                    </a>
+                    <br>
+                    <span>Version 0.1</span>
+                </p>
+            </div>
+        </div>
+
+
+
+        <!-- tableau des scores -->
+        <div class="center">
+            <div class="subcontainer">
+                <h1>Tableau des scores</h1>
+                <table id="content">
+                    <thead>
+                        <th>R.</th>
+                        <th>Joueur</th>
+                        <th>Score</th>
+                    </thead>
+                    <tbody>
+                        <!-- <tr data-id="294720fdj49">
+                            <td><span>1</span></td>
+                            <td>Kerogs</td>
+                            <td>1920 pts</td>
+                        </tr>
+                        <tr>
+                            <td><span>2</span></td>
+                            <td>Kerogs</td>
+                            <td>1920 pts</td>
+                        </tr>
+                        <tr>
+                            <td><span>3</span></td>
+                            <td>Kerogs</td>
+                            <td>1920 pts</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+        <!-- settings -->
+        <div class="right">
+            <section>
+                <form action="" id="add">
+                    <h3 for="">Ajouter un joueur</h3>
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
+                    <input type="text" name="score" id="score" placeholder="Score">
+                    <input type="submit" value="Ajouter">
+                </form>
+            </section>
+
+            <section>
+                <form action="" id="purge">
+                    <input class="red" type="submit" value="Purger">
+                </form>
+            </section>
+        </div>
+    </div>
+
 </body>
+<!-- script -->
+<script src="./src/js/tbs.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Fonction pour mettre à jour les données du tableau
+        function updateTable() {
+            // Récupérer le tbody du tableau
+            var tbody = document.querySelector("table tbody");
+
+            // Effacer le contenu actuel du tbody
+            tbody.innerHTML = "";
+
+            // Récupérer les données existantes du cookie
+            var userData = JSON.parse(localStorage.getItem('userData')) || [];
+
+            // Parcourir les données et les ajouter au tableau
+            userData.forEach(function (user) {
+                // Créer une nouvelle ligne pour l'utilisateur
+                var newRow = document.createElement("tr");
+
+                // Ajouter un attribut data-id avec l'identifiant unique
+                newRow.setAttribute("data-id", user.id);
+
+                // Créer les cellules pour le rang, le pseudo et le score
+                var rankCell = document.createElement("td");
+                var userCell = document.createElement("td");
+                var scoreCell = document.createElement("td");
+
+                // Assigner les valeurs aux cellules
+                rankCell.innerHTML = "-";
+                userCell.innerHTML = user.pseudo;
+                scoreCell.innerHTML = user.score + " pts";
+
+                // Ajouter les cellules à la nouvelle ligne
+                newRow.appendChild(rankCell);
+                newRow.appendChild(userCell);
+                newRow.appendChild(scoreCell);
+
+                // Ajouter la nouvelle ligne au tbody du tableau
+                tbody.appendChild(newRow);
+            });
+
+            // Mettre à jour le classement après avoir chargé les données
+            updateRanking();
+        }
+
+        // Exécuter la fonction updateTable toutes les secondes
+        setInterval(updateTable, 1000);
+    });
+
+</script>
 
 </html>
