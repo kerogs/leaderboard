@@ -1,0 +1,15 @@
+$text:#fff;
+$background:#151417;
+$accent:#28b7c9;
+$accent2:#11d197;
+$accent3:#cc0271;
+
+*{
+    margin: 0;
+    border-collapse: collapse;
+}
+
+body{
+    background-color: $background;
+    color:$text;
+}
