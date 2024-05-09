@@ -227,6 +227,12 @@ body {
   z-index: 99999;
   width: 160px;
   border-radius: 0.75rem;
+  transition: 0.4s;
+  cursor: default;
+}
+.custom-menu.active {
+  animation: 0.8s spawn forwards;
+  overflow: hidden;
 }
 .custom-menu ul {
   list-style: none;
@@ -239,6 +245,7 @@ body {
   font-weight: bolder;
   padding: 6px 0;
   transition: 0.2s;
+  cursor: pointer;
 }
 .custom-menu ul li svg {
   margin: 0 6px;
@@ -252,4 +259,19 @@ body {
 }
 .custom-menu ul li:hover svg {
   fill: #cc0271;
+}
+
+@keyframes spawn {
+  0% {
+    height: 20px;
+    width: 20px;
+  }
+  50% {
+    height: 120px;
+    width: 160px;
+  }
+  100% {
+    height: 120px;
+    width: 160px;
+  }
 }/*# sourceMappingURL=style.css.map */

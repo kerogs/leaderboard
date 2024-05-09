@@ -104,30 +104,6 @@ function generateId() {
 
 
 
-// Fonction pour supprimer tous les cookies du site
-function purgeCookies() {
-    var cookies = document.cookie.split("; ");
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-
-        // Supprimer le cookie en incluant les attributs SameSite=None et Secure
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure";
-    }
-}
-
-// Gestionnaire d'événements pour purger les cookies lorsque vous cliquez sur #purge
-document.getElementById("purge").addEventListener('submit', function (event) {
-    event.preventDefault(); // Empêcher le comportement par défaut du formulaire
-
-    // Purger les cookies
-    purgeCookies();
-});
-
-
-
-
 
 
 
@@ -156,6 +132,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var customMenu = document.getElementById('custom-menu');
     var content = document.getElementById('content');
 
+    // Fonction pour ajouter la classe .active au menu contextuel
+    function activateContextMenu() {
+        customMenu.classList.add('active');
+    }
+
+    // Fonction pour supprimer la classe .active du menu contextuel
+    function deactivateContextMenu() {
+        customMenu.classList.remove('active');
+    }
+
     // Afficher le menu contextuel lors d'un clic droit sur l'élément #content
     content.addEventListener('contextmenu', function (event) {
         event.preventDefault(); // Empêcher le comportement par défaut du clic droit
@@ -165,9 +151,13 @@ document.addEventListener('DOMContentLoaded', function () {
         customMenu.style.left = event.pageX + 'px';
         customMenu.style.top = event.pageY + 'px';
 
+        // Ajouter la classe .active au menu contextuel
+        activateContextMenu();
+
         // Ajouter un gestionnaire d'événements pour cacher le menu contextuel lors d'un clic en dehors de celui-ci
         document.addEventListener('click', function hideMenu() {
             customMenu.style.display = 'none';
+            deactivateContextMenu(); // Supprimer la classe .active
             document.removeEventListener('click', hideMenu);
         });
     });
