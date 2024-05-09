@@ -436,10 +436,15 @@ body {
                     margin: 10px 0;
 
                     &[type='submit'] {
+                        cursor: pointer;
                         background-color: $green;
 
                         &.red{
                             background-color: $red;
+                        }
+
+                        &:hover{
+                            opacity: .8;
                         }
                     }
                 }

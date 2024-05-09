@@ -1,0 +1,55 @@
+.md-ksm {
+  color: #fff;
+}
+.md-ksm.md-ksm-bck {
+  background-color: #161423;
+  padding: 20px;
+  border-radius: 0.75rem;
+}
+.md-ksm.md-ksm-spc {
+  margin: 20px 0;
+}
+.md-ksm.md-ksm-mh {
+  max-height: 600px;
+  overflow-y: auto;
+}
+.md-ksm img {
+  max-width: 600px;
+}
+.md-ksm h1, .md-ksm h2, .md-ksm h3, .md-ksm h4, .md-ksm h5, .md-ksm h6, .md-ksm p {
+  padding-bottom: 0.3em;
+  margin: 10px 0;
+}
+.md-ksm h1, .md-ksm h2, .md-ksm h3, .md-ksm h4, .md-ksm h5, .md-ksm h6 {
+  color: #fff;
+}
+.md-ksm h1, .md-ksm h2 {
+  border-bottom: 1px solid #fff;
+  display: block;
+}
+.md-ksm a {
+  color: #0080ff;
+}
+.md-ksm a:hover {
+  color: #fff;
+}
+.md-ksm pre {
+  background-color: #343a3f;
+  border-radius: 0.33rem;
+  padding: 10px;
+}
+.md-ksm pre > code {
+  color: #fff;
+  background: none;
+}
+.md-ksm em {
+  color: #a3a3a3;
+}
+.md-ksm span {
+  color: #494949;
+}
+.md-ksm code {
+  color: #0090FF;
+  background-color: #191919;
+  padding: 2px 9px;
+}/*# sourceMappingURL=markdown.css.map */

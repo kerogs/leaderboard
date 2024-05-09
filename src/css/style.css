@@ -209,10 +209,14 @@ body {
   margin: 10px 0;
 }
 .container .right section form input[type=submit] {
+  cursor: pointer;
   background-color: rgb(36, 136, 44);
 }
 .container .right section form input[type=submit].red {
   background-color: rgb(136, 36, 36);
+}
+.container .right section form input[type=submit]:hover {
+  opacity: 0.8;
 }
 
 .custom-menu {
