@@ -1,3 +1,7 @@
+> [!important]
+> This version has been discontinued. A new version will be created in the future under a different language.
+
+
 # leaderboard
 The site was created at the request of the [Five's TV](https://fivestv.fr) association.
 
